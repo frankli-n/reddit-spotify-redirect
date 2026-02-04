@@ -5,21 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Walk In Wardrobe - Prettiest Girl | New Single</title>
     
-    <!-- Google tag (gtag.js) - Enhanced -->
+    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-P4D3N4CK6S"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      
-      // Configure with debug mode
       gtag('config', 'G-P4D3N4CK6S', {
-        'debug_mode': true,
         'send_page_view': true
       });
-      
-      console.log('%c✓ Google Analytics Loaded', 'color: green; font-weight: bold');
-      console.log('Property ID: G-P4D3N4CK6S');
     </script>
 
     
@@ -52,45 +46,6 @@
             line-height: 1.6;
             height: 100vh;
             width: 100vw;
-        }
-
-        /* Debug panel */
-        .debug-panel {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: rgba(0, 0, 0, 0.9);
-            color: #0f0;
-            padding: 15px;
-            border-radius: 8px;
-            font-family: 'Courier New', monospace;
-            font-size: 12px;
-            max-width: 400px;
-            z-index: 10000;
-            display: none;
-        }
-
-        .debug-panel.show {
-            display: block;
-        }
-
-        .debug-toggle {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #1DB954;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            z-index: 9999;
-            font-weight: bold;
-            border: none;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-        }
-
-        .debug-toggle:hover {
-            background: #1ed760;
         }
 
         /* Animated gradient background */
@@ -294,11 +249,6 @@
     <div class="accent-shape shape-1"></div>
     <div class="accent-shape shape-2"></div>
 
-    <button class="debug-toggle" onclick="toggleDebug()">Show Tracking Info</button>
-    <div class="debug-panel" id="debugPanel">
-        <div id="debugContent">Loading...</div>
-    </div>
-
     <div class="container">
         <section class="hero">
             <div class="hero-content">
@@ -351,21 +301,7 @@
     </div>
 
     <script>
-        // Debug panel toggle
-        function toggleDebug() {
-            const panel = document.getElementById('debugPanel');
-            const button = document.querySelector('.debug-toggle');
-            if (panel.classList.contains('show')) {
-                panel.classList.remove('show');
-                button.textContent = 'Show Tracking Info';
-            } else {
-                panel.classList.add('show');
-                button.textContent = 'Hide Tracking Info';
-                updateDebugInfo();
-            }
-        }
-
-        // Get URL parameters for tracking
+        // Get URL parameters for tracking Reddit campaign data
         function getUrlParams() {
             const params = new URLSearchParams(window.location.search);
             return {
@@ -378,47 +314,11 @@
         }
 
         const urlParams = getUrlParams();
-        let clickCount = 0;
-        let eventLog = [];
-
-        // Update debug panel
-        function updateDebugInfo() {
-            const debugContent = document.getElementById('debugContent');
-            debugContent.innerHTML = `
-                <strong>🔍 Tracking Status</strong><br>
-                ━━━━━━━━━━━━━━━━━━━━━━<br>
-                <strong>GA Property:</strong> G-P4D3N4CK6S<br>
-                <strong>Debug Mode:</strong> ON<br>
-                <br>
-                <strong>📊 Current URL Parameters:</strong><br>
-                Source: ${urlParams.source}<br>
-                Medium: ${urlParams.medium}<br>
-                Campaign: ${urlParams.campaign}<br>
-                Content: ${urlParams.content}<br>
-                Subreddit: ${urlParams.subreddit}<br>
-                <br>
-                <strong>🎯 Clicks Tracked:</strong> ${clickCount}<br>
-                <br>
-                <strong>📝 Event Log:</strong><br>
-                ${eventLog.length > 0 ? eventLog.slice(-5).join('<br>') : 'No events yet'}
-                <br><br>
-                <strong>💡 Test URL:</strong><br>
-                <small>${window.location.origin}${window.location.pathname}?utm_source=reddit&utm_medium=cpc&utm_campaign=test&subreddit=test</small>
-            `;
-        }
-
-        // Log events
-        function logEvent(eventName, data) {
-            const timestamp = new Date().toLocaleTimeString();
-            eventLog.push(`${timestamp} - ${eventName}`);
-            if (eventLog.length > 10) eventLog.shift();
-            updateDebugInfo();
-        }
-
-        // Track page view
+        
+        // Track page view with campaign data
         if (typeof gtag !== 'undefined') {
             gtag('event', 'page_view', {
-                'page_title': 'Prettiest Girl Landing',
+                'page_title': 'Prettiest Girl Landing Page',
                 'page_location': window.location.href,
                 'utm_source': urlParams.source,
                 'utm_medium': urlParams.medium,
@@ -426,41 +326,23 @@
                 'utm_content': urlParams.content,
                 'subreddit': urlParams.subreddit
             });
-            
-            logEvent('page_view', urlParams);
-            console.log('%c✓ Page view tracked', 'color: green; font-weight: bold', urlParams);
-        } else {
-            console.error('%c✗ gtag not defined!', 'color: red; font-weight: bold');
-            logEvent('ERROR: gtag not loaded');
         }
 
-        // Track all Spotify clicks
+        // Track all Spotify clicks with detailed information
         document.querySelectorAll('a[href*="spotify.com"]').forEach(function(link) {
             link.addEventListener('click', function(e) {
-                clickCount++;
                 const clickSource = this.getAttribute('data-click-source') || 'unknown';
                 
-                const eventData = {
-                    'event_category': 'engagement',
-                    'event_label': clickSource,
-                    'click_source': clickSource,
-                    'utm_source': urlParams.source,
-                    'utm_medium': urlParams.medium,
-                    'utm_campaign': urlParams.campaign,
-                    'subreddit': urlParams.subreddit,
-                    'value': clickCount
-                };
-                
                 if (typeof gtag !== 'undefined') {
-                    gtag('event', 'spotify_click', eventData);
-                    logEvent(`spotify_click (${clickSource})`, eventData);
-                    console.log('%c✓ Spotify click tracked', 'color: green; font-weight: bold', {
-                        source: clickSource,
-                        count: clickCount,
-                        campaign: urlParams
+                    gtag('event', 'spotify_click', {
+                        'event_category': 'engagement',
+                        'event_label': clickSource,
+                        'click_source': clickSource,
+                        'utm_source': urlParams.source,
+                        'utm_medium': urlParams.medium,
+                        'utm_campaign': urlParams.campaign,
+                        'subreddit': urlParams.subreddit
                     });
-                } else {
-                    console.error('%c✗ gtag not available for click tracking', 'color: red; font-weight: bold');
                 }
             });
         });
@@ -473,7 +355,7 @@
             timeOnPage = Math.floor((Date.now() - startTime) / 1000);
         }, 1000);
 
-        // Send engagement data when leaving
+        // Track engagement when user leaves
         window.addEventListener('beforeunload', function() {
             if (typeof gtag !== 'undefined' && timeOnPage > 3) {
                 gtag('event', 'time_on_page', {
@@ -487,14 +369,14 @@
             }
         });
 
-        // Initial debug info
-        console.log('%c━━━━━━━━━━━━━━━━━━━━━━', 'color: cyan');
-        console.log('%c🎵 Prettiest Girl - Tracking Active', 'color: cyan; font-weight: bold; font-size: 14px');
-        console.log('%c━━━━━━━━━━━━━━━━━━━━━━', 'color: cyan');
-        console.log('URL Parameters:', urlParams);
-        console.log('Full URL:', window.location.href);
-        console.log('%cClick the "Show Tracking Info" button to see real-time tracking data', 'color: yellow');
-        console.log('%c━━━━━━━━━━━━━━━━━━━━━━', 'color: cyan');
+        // Track scroll depth (if page becomes scrollable on mobile)
+        let maxScroll = 0;
+        window.addEventListener('scroll', function() {
+            const scrollPercent = Math.round((window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100);
+            if (scrollPercent > maxScroll) {
+                maxScroll = scrollPercent;
+            }
+        });
     </script>
 </body>
 </html>
