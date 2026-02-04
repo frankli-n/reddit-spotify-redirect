@@ -5,13 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Walk In Wardrobe - Prettiest Girl | New Single</title>
     
-    <!-- Google tag (gtag.js) -->
+    <!-- Google tag (gtag.js) - Fixed implementation -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-P4D3N4CK6S"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-P4D3N4CK6S');
+      gtag('config', 'G-P4D3N4CK6S', {
+        'send_page_view': true,
+        'cookie_flags': 'SameSite=None;Secure'
+      });
+      
+      // Track page load immediately
+      console.log('GA initialized');
     </script>
 
     
@@ -40,7 +46,7 @@
             font-family: 'Darker Grotesque', sans-serif;
             background: var(--cream);
             color: var(--dark-accent);
-            overflow: hidden; /* Prevents scrolling as we only have the hero now */
+            overflow: hidden;
             line-height: 1.6;
             height: 100vh;
             width: 100vw;
@@ -172,23 +178,47 @@
             overflow: hidden;
             box-shadow: 0 20px 40px rgba(0,0,0,0.15);
             transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            position: relative;
         }
 
-        .photo-item:nth-child(1) { grid-row: span 2; } /* Large main cover */
+        .photo-item:nth-child(1) { grid-row: span 2; }
 
         .photo-item:hover {
             transform: scale(1.03) rotate(1deg);
             z-index: 10;
         }
 
-        .grid-image {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center center; 
-        display: block;
+        .photo-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(29, 185, 84, 0);
+            transition: background 0.3s ease;
+            pointer-events: none;
         }
 
+        .photo-item:hover::after {
+            background: rgba(29, 185, 84, 0.1);
+        }
+
+        .photo-link {
+            display: block;
+            width: 100%;
+            height: 100%;
+            text-decoration: none;
+        }
+
+        .grid-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center center; 
+            display: block;
+        }
 
         /* Decorative accents */
         .accent-shape {
@@ -231,7 +261,10 @@
                     <p class="tagline">
                         Thanks for checking out my song I hope you like it! I'm an indie music maker from Sydney. I do all the recording and mixing myself at home, and in my van where the acoustics are nice. 
                     </p>
-                    <a href="https://open.spotify.com/track/1eLnAARSMYp6mmTOspp6zB?si=eafe5e056553470f" class="spotify-cta" target="_blank">
+                    <a href="https://open.spotify.com/track/1eLnAARSMYp6mmTOspp6zB?si=eafe5e056553470f" 
+                       class="spotify-cta" 
+                       target="_blank"
+                       data-click-source="main-button">
                         <svg class="spotify-icon" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
                         </svg>
@@ -242,13 +275,28 @@
                 <div class="hero-media">
                     <div class="photo-grid">
                         <div class="photo-item">
-                            <img src="violin_bush.png" alt="Song Cover" class="grid-image">
+                            <a href="https://open.spotify.com/track/1eLnAARSMYp6mmTOspp6zB?si=eafe5e056553470f" 
+                               class="photo-link" 
+                               target="_blank"
+                               data-click-source="image-1">
+                                <img src="violin_bush.png" alt="Song Cover" class="grid-image">
+                            </a>
                         </div>
                         <div class="photo-item">
-                            <img src="sitting_car.png" alt="Artist photo" class="grid-image">
+                            <a href="https://open.spotify.com/track/1eLnAARSMYp6mmTOspp6zB?si=eafe5e056553470f" 
+                               class="photo-link" 
+                               target="_blank"
+                               data-click-source="image-2">
+                                <img src="sitting_car.png" alt="Artist photo" class="grid-image">
+                            </a>
                         </div>
                         <div class="photo-item">
-                            <img src="PG_song_cover.jpeg" alt="Artist photo" class="grid-image">
+                            <a href="https://open.spotify.com/track/1eLnAARSMYp6mmTOspp6zB?si=eafe5e056553470f" 
+                               class="photo-link" 
+                               target="_blank"
+                               data-click-source="image-3">
+                                <img src="PG_song_cover.jpeg" alt="Artist photo" class="grid-image">
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -257,13 +305,110 @@
     </div>
 
     <script>
-        // Simple click tracking
-        document.querySelector('.spotify-cta').addEventListener('click', function() {
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'spotify_click');
+        // Get URL parameters for tracking Reddit campaign data
+        function getUrlParams() {
+            const params = new URLSearchParams(window.location.search);
+            return {
+                source: params.get('utm_source') || 'direct',
+                medium: params.get('utm_medium') || 'none',
+                campaign: params.get('utm_campaign') || 'none',
+                content: params.get('utm_content') || 'none',
+                subreddit: params.get('subreddit') || 'unknown'
+            };
+        }
 
+        // Track page view with campaign data
+        const urlParams = getUrlParams();
+        
+        if (typeof gtag !== 'undefined') {
+            // Send enhanced page view with campaign parameters
+            gtag('event', 'page_view', {
+                'page_title': 'Prettiest Girl Landing Page',
+                'page_location': window.location.href,
+                'utm_source': urlParams.source,
+                'utm_medium': urlParams.medium,
+                'utm_campaign': urlParams.campaign,
+                'utm_content': urlParams.content,
+                'subreddit': urlParams.subreddit
+            });
+            
+            console.log('Page view tracked with params:', urlParams);
+        }
+
+        // Track all Spotify clicks with detailed information
+        document.querySelectorAll('a[href*="spotify.com"]').forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                const clickSource = this.getAttribute('data-click-source') || 'unknown';
+                
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'spotify_click', {
+                        'event_category': 'engagement',
+                        'event_label': clickSource,
+                        'click_source': clickSource,
+                        'utm_source': urlParams.source,
+                        'utm_medium': urlParams.medium,
+                        'utm_campaign': urlParams.campaign,
+                        'subreddit': urlParams.subreddit,
+                        'timestamp': new Date().toISOString()
+                    });
+                    
+                    console.log('Spotify click tracked:', {
+                        source: clickSource,
+                        campaign: urlParams
+                    });
+                }
+            });
+        });
+
+        // Track time on page
+        let timeOnPage = 0;
+        const startTime = Date.now();
+        
+        setInterval(function() {
+            timeOnPage = Math.floor((Date.now() - startTime) / 1000);
+        }, 1000);
+
+        // Track engagement when user leaves
+        window.addEventListener('beforeunload', function() {
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'time_on_page', {
+                    'event_category': 'engagement',
+                    'event_label': 'session_duration',
+                    'value': timeOnPage,
+                    'utm_source': urlParams.source,
+                    'utm_campaign': urlParams.campaign,
+                    'subreddit': urlParams.subreddit
+                });
             }
-            console.log('Spotify Clicked');
+        });
+
+        // Track scroll depth (if page becomes scrollable on mobile)
+        let maxScroll = 0;
+        window.addEventListener('scroll', function() {
+            const scrollPercent = Math.round((window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100);
+            if (scrollPercent > maxScroll) {
+                maxScroll = scrollPercent;
+                
+                if (maxScroll >= 25 && maxScroll < 50 && typeof gtag !== 'undefined') {
+                    gtag('event', 'scroll_depth', {
+                        'event_category': 'engagement',
+                        'event_label': '25%',
+                        'utm_source': urlParams.source
+                    });
+                } else if (maxScroll >= 50 && maxScroll < 75 && typeof gtag !== 'undefined') {
+                    gtag('event', 'scroll_depth', {
+                        'event_category': 'engagement',
+                        'event_label': '50%',
+                        'utm_source': urlParams.source
+                    });
+                } else if (maxScroll >= 75 && typeof gtag !== 'undefined') {
+                    gtag('event', 'scroll_depth', {
+                        'event_category': 'engagement',
+                        'event_label': '75%',
+                        'utm_source': urlParams.source
+                    });
+                }
+            }
         });
     </script>
 </body>
