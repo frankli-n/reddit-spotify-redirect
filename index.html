@@ -228,66 +228,68 @@
             }
         }
 
-        .media-frame {
+        /* Hero Media - Photo Grid */
+        .hero-media {
             position: relative;
-            aspect-ratio: 3 / 4;
-            border-radius: 20px;
+            animation: slideInRight 0.8s ease-out 0.4s both;
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            max-width: 550px;
+        }
+
+        .photo-item {
+            position: relative;
+            aspect-ratio: 1;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             cursor: pointer;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: block;
         }
 
-        .media-frame:hover {
-            transform: scale(1.02);
-            box-shadow: 0 35px 90px rgba(0, 0, 0, 0.7);
+        .photo-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
         }
 
-        .media-frame::before {
+        .photo-item::before {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, 
-                transparent 30%, 
-                rgba(93, 223, 205, 0.15) 50%, 
-                transparent 70%);
-            animation: shimmer 3s ease-in-out infinite;
-        }
-
-        @keyframes shimmer {
-            0%, 100% { transform: translateX(-20%) translateY(-20%); }
-            50% { transform: translateX(20%) translateY(20%); }
-        }
-
-        /* Placeholder for media - replace with your image/video */
-        .media-placeholder {
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, var(--sky-bright) 0%, var(--sky-light) 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Crimson Pro', serif;
-            font-size: 24px;
-            color: var(--dark-accent);
-            text-align: center;
-            padding: 40px;
+            background: linear-gradient(135deg, rgba(93, 223, 205, 0.1) 0%, rgba(255, 140, 66, 0.1) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
         }
 
-        /* If you want to use an actual image/video, replace .media-placeholder with: */
-        .media-image {
+        .photo-item:hover::before {
+            opacity: 1;
+        }
+
+        .grid-image {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            display: block;
         }
 
-        .media-video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
 
         /* Decorative accent elements */
@@ -468,6 +470,11 @@
                 font-size: 56px;
             }
 
+            .photo-grid {
+                max-width: 100%;
+                margin: 0 auto;
+            }
+
             .story-media-grid {
                 grid-template-columns: 1fr 1fr;
             }
@@ -483,6 +490,12 @@
                 font-size: 16px;
                 width: 100%;
                 justify-content: center;
+            }
+
+            .photo-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                max-width: 300px;
             }
 
             .story-section {
@@ -515,7 +528,7 @@
                     <div class="eyebrow">New Single Out Now</div>
                     <h1>Prettiest<br>Girl</h1>
                     <p class="tagline">
-                        Thanks for checking out my song I hope you like it! I'm an indie music maker from Sydney. I do all the recording and mixing myself, at home and in my van where the acoustics are good.
+                        Thanks for checking out my song I hope you like it! I'm an indie music maker from Sydney. I do all the recording and mixing myself at home, and in my van where the acoustics are nice. 
                     </p>
                     <a href="https://open.spotify.com/track/1eLnAARSMYp6mmTOspp6zB" class="spotify-cta" target="_blank" rel="noopener">
                         <svg class="spotify-icon" viewBox="0 0 24 24" fill="currentColor">
@@ -526,12 +539,17 @@
                 </div>
 
                 <div class="hero-media">
-                    <a href="https://open.spotify.com/track/1eLnAARSMYp6mmTOspp6zB" target="_blank" rel="noopener" style="display: block; text-decoration: none;">
-                        <div class="media-frame">
-                            <!-- Your album cover -->
-                            <img src="PG_song_cover.jpeg" alt="Walk In Wardrobe - Prettiest Girl" class="media-image">
-                        </div>
-                    </a>
+                    <div class="photo-grid">
+                        <a href="https://open.spotify.com/track/1eLnAARSMYp6mmTOspp6zB" target="_blank" rel="noopener" class="photo-item">
+                            <img src="PG_song_cover.jpeg" alt="Walk In Wardrobe - Prettiest Girl" class="grid-image">
+                        </a>
+                        <a href="https://open.spotify.com/track/1eLnAARSMYp6mmTOspp6zB" target="_blank" rel="noopener" class="photo-item">
+                            <img src="sitting_car.png" alt="Walk In Wardrobe artist photo" class="grid-image">
+                        </a>
+                        <a href="https://open.spotify.com/track/1eLnAARSMYp6mmTOspp6zB" target="_blank" rel="noopener" class="photo-item">
+                            <img src="violin_bush.png" alt="Walk In Wardrobe artist photo" class="grid-image">
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
