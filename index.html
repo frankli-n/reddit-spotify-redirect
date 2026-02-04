@@ -3,17 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Artist Name - New Single</title>
+    <title>Walk In Wardrobe - Prettiest Girl | New Single</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;600;800&family=Darker+Grotesque:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #FF3864;
+            --primary: #4FD1C5;
             --secondary: #1DB954;
-            --dark: #0A0E14;
-            --light: #F8F4EF;
-            --accent: #FFD23F;
+            --dark: #0B1418;
+            --light: #F8F9FA;
+            --accent: #FFB86C;
+            --teal: #3FBFB2;
+            --turquoise: #5DD9C1;
         }
 
         * {
@@ -40,9 +42,9 @@
             z-index: -1;
             background: linear-gradient(135deg, 
                 var(--dark) 0%, 
-                #1a1f2e 25%, 
-                #2d1b3d 50%, 
-                #1a1f2e 75%, 
+                #0d2c2a 25%, 
+                #1a4540 50%, 
+                #0d2c2a 75%, 
                 var(--dark) 100%);
             background-size: 400% 400%;
             animation: gradientShift 20s ease infinite;
@@ -123,7 +125,7 @@
             font-weight: 700;
             letter-spacing: 4px;
             text-transform: uppercase;
-            color: var(--accent);
+            color: var(--turquoise);
             margin-bottom: 20px;
             display: inline-block;
             position: relative;
@@ -136,7 +138,7 @@
             left: 0;
             width: 60px;
             height: 3px;
-            background: var(--primary);
+            background: var(--teal);
         }
 
         .hero-text h1 {
@@ -145,7 +147,7 @@
             font-weight: 800;
             line-height: 1.1;
             margin-bottom: 30px;
-            background: linear-gradient(135deg, var(--light) 0%, var(--accent) 100%);
+            background: linear-gradient(135deg, var(--light) 0%, var(--turquoise) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -240,7 +242,7 @@
             height: 200%;
             background: linear-gradient(45deg, 
                 transparent 30%, 
-                rgba(255, 56, 100, 0.1) 50%, 
+                rgba(79, 209, 197, 0.1) 50%, 
                 transparent 70%);
             animation: shimmer 3s ease-in-out infinite;
         }
@@ -254,7 +256,7 @@
         .media-placeholder {
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, var(--primary) 0%, #9b1de0 100%);
+            background: linear-gradient(135deg, var(--turquoise) 0%, var(--teal) 100%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -291,7 +293,7 @@
         .accent-shape.shape-1 {
             width: 400px;
             height: 400px;
-            background: var(--primary);
+            background: var(--turquoise);
             top: -200px;
             right: -100px;
             animation-delay: 0s;
@@ -300,7 +302,7 @@
         .accent-shape.shape-2 {
             width: 300px;
             height: 300px;
-            background: var(--accent);
+            background: var(--teal);
             bottom: -150px;
             left: -100px;
             animation-delay: 2s;
@@ -329,7 +331,7 @@
             font-size: clamp(36px, 5vw, 56px);
             font-weight: 800;
             margin-bottom: 30px;
-            color: var(--accent);
+            color: var(--turquoise);
         }
 
         .story-content p {
@@ -349,7 +351,7 @@
             aspect-ratio: 1;
             border-radius: 15px;
             overflow: hidden;
-            background: linear-gradient(135deg, #2d1b3d 0%, #1a1f2e 100%);
+            background: linear-gradient(135deg, #1a4540 0%, #0d2c2a 100%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -401,7 +403,7 @@
             font-family: 'Crimson Pro', serif;
             font-size: 48px;
             font-weight: 800;
-            color: var(--primary);
+            color: var(--turquoise);
             margin-bottom: 10px;
         }
 
@@ -495,11 +497,11 @@
             <div class="hero-content">
                 <div class="hero-text">
                     <div class="eyebrow">New Single Out Now</div>
-                    <h1>Your Song<br>Title Here</h1>
+                    <h1>Prettiest<br>Girl</h1>
                     <p class="tagline">
-                        A brief, compelling description of your sound, vibe, or what this song means to you. Make it personal and authentic.
+                        A dreamy indie track that captures the feeling of being caught between reality and daydream. Fresh vibes with a sun-soaked, nostalgic edge.
                     </p>
-                    <a href="YOUR_SPOTIFY_LINK_HERE" class="spotify-cta" target="_blank" rel="noopener">
+                    <a href="https://open.spotify.com/track/1eLnAARSMYp6mmTOspp6zB" class="spotify-cta" target="_blank" rel="noopener">
                         <svg class="spotify-icon" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
                         </svg>
@@ -509,13 +511,8 @@
 
                 <div class="hero-media">
                     <div class="media-frame">
-                        <!-- REPLACE THIS PLACEHOLDER WITH YOUR IMAGE OR VIDEO -->
-                        <!-- For image: <img src="your-image.jpg" alt="Your Name" class="media-image"> -->
-                        <!-- For video: <video src="your-video.mp4" class="media-video" autoplay muted loop playsinline></video> -->
-                        <div class="media-placeholder">
-                            Your Photo or Video Here<br>
-                            <small>(Replace this div with img or video tag)</small>
-                        </div>
+                        <!-- Your album cover -->
+                        <img src="/mnt/user-data/uploads/PG_song_cover.jpeg" alt="Walk In Wardrobe - Prettiest Girl" class="media-image">
                     </div>
                 </div>
             </div>
@@ -527,15 +524,15 @@
         <div class="container">
             <div class="story-grid">
                 <div class="story-content">
-                    <h2>About Me</h2>
+                    <h2>About Walk In Wardrobe</h2>
                     <p>
-                        Share your story here. Who are you as an artist? What drives your music? What makes your sound unique?
+                        Walk In Wardrobe is all about creating music that feels like a warm afternoon, where reality blurs into daydream. Based on crafting indie sounds that sit somewhere between nostalgia and now.
                     </p>
                     <p>
-                        Talk about your journey, influences, or what you want listeners to feel when they hear your music. Keep it genuine and conversational.
+                        "Prettiest Girl" captures that moment when you're caught in your thoughts—acoustic guitars meeting dreamy atmospheres, creating something that's both intimate and expansive. It's music for late drives, golden hour, and those feelings you can't quite put into words.
                     </p>
                     <p>
-                        This is your chance to connect on a deeper level before they hit play.
+                        Each song is a snapshot, a feeling, a vibe—an invitation to step into a world where the everyday becomes extraordinary.
                     </p>
                 </div>
 
@@ -586,7 +583,7 @@
     <section class="final-cta-section">
         <div class="container">
             <h2>Ready to Listen?</h2>
-            <a href="YOUR_SPOTIFY_LINK_HERE" class="spotify-cta" target="_blank" rel="noopener">
+            <a href="https://open.spotify.com/track/1eLnAARSMYp6mmTOspp6zB" class="spotify-cta" target="_blank" rel="noopener">
                 <svg class="spotify-icon" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
                 </svg>
