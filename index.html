@@ -9,13 +9,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;600;800&family=Darker+Grotesque:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #4FD1C5;
-            --secondary: #1DB954;
-            --dark: #0B1418;
-            --light: #F8F9FA;
-            --accent: #FFB86C;
-            --teal: #3FBFB2;
-            --turquoise: #5DD9C1;
+            --sky-bright: #5DDFCD;
+            --sky-light: #7FE8D9;
+            --golden: #F4A460;
+            --warm-orange: #FF8C42;
+            --cream: #FFF8E7;
+            --deep-teal: #2D9B8F;
+            --spotify: #1DB954;
+            --dark-accent: #1A4D4D;
         }
 
         * {
@@ -26,8 +27,8 @@
 
         body {
             font-family: 'Darker Grotesque', sans-serif;
-            background: var(--dark);
-            color: var(--light);
+            background: var(--cream);
+            color: var(--dark-accent);
             overflow-x: hidden;
             line-height: 1.6;
         }
@@ -41,11 +42,11 @@
             height: 100%;
             z-index: -1;
             background: linear-gradient(135deg, 
-                var(--dark) 0%, 
-                #0d2c2a 25%, 
-                #1a4540 50%, 
-                #0d2c2a 75%, 
-                var(--dark) 100%);
+                #E8F5F3 0%, 
+                #B8EDE5 25%, 
+                #7FE8D9 50%, 
+                #B8EDE5 75%, 
+                #E8F5F3 100%);
             background-size: 400% 400%;
             animation: gradientShift 20s ease infinite;
         }
@@ -125,7 +126,7 @@
             font-weight: 700;
             letter-spacing: 4px;
             text-transform: uppercase;
-            color: var(--turquoise);
+            color: var(--warm-orange);
             margin-bottom: 20px;
             display: inline-block;
             position: relative;
@@ -138,7 +139,7 @@
             left: 0;
             width: 60px;
             height: 3px;
-            background: var(--teal);
+            background: var(--deep-teal);
         }
 
         .hero-text h1 {
@@ -147,7 +148,7 @@
             font-weight: 800;
             line-height: 1.1;
             margin-bottom: 30px;
-            background: linear-gradient(135deg, var(--light) 0%, var(--turquoise) 100%);
+            background: linear-gradient(135deg, var(--deep-teal) 0%, var(--sky-bright) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -156,7 +157,7 @@
         .hero-text .tagline {
             font-size: clamp(20px, 3vw, 28px);
             font-weight: 400;
-            color: rgba(248, 244, 239, 0.8);
+            color: rgba(26, 77, 77, 0.85);
             margin-bottom: 40px;
             max-width: 500px;
         }
@@ -171,8 +172,8 @@
             font-weight: 900;
             text-transform: uppercase;
             letter-spacing: 2px;
-            color: var(--dark);
-            background: var(--secondary);
+            color: #fff;
+            background: var(--spotify);
             border: none;
             border-radius: 50px;
             cursor: pointer;
@@ -180,7 +181,7 @@
             position: relative;
             overflow: hidden;
             transition: all 0.3s ease;
-            box-shadow: 0 10px 40px rgba(29, 185, 84, 0.3);
+            box-shadow: 0 10px 40px rgba(29, 185, 84, 0.4);
         }
 
         .spotify-cta::before {
@@ -242,7 +243,7 @@
             height: 200%;
             background: linear-gradient(45deg, 
                 transparent 30%, 
-                rgba(79, 209, 197, 0.1) 50%, 
+                rgba(93, 223, 205, 0.15) 50%, 
                 transparent 70%);
             animation: shimmer 3s ease-in-out infinite;
         }
@@ -256,13 +257,13 @@
         .media-placeholder {
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, var(--turquoise) 0%, var(--teal) 100%);
+            background: linear-gradient(135deg, var(--sky-bright) 0%, var(--sky-light) 100%);
             display: flex;
             align-items: center;
             justify-content: center;
             font-family: 'Crimson Pro', serif;
             font-size: 24px;
-            color: var(--light);
+            color: var(--dark-accent);
             text-align: center;
             padding: 40px;
         }
@@ -293,7 +294,7 @@
         .accent-shape.shape-1 {
             width: 400px;
             height: 400px;
-            background: var(--turquoise);
+            background: var(--sky-bright);
             top: -200px;
             right: -100px;
             animation-delay: 0s;
@@ -302,7 +303,7 @@
         .accent-shape.shape-2 {
             width: 300px;
             height: 300px;
-            background: var(--teal);
+            background: var(--golden);
             bottom: -150px;
             left: -100px;
             animation-delay: 2s;
@@ -331,13 +332,13 @@
             font-size: clamp(36px, 5vw, 56px);
             font-weight: 800;
             margin-bottom: 30px;
-            color: var(--turquoise);
+            color: var(--deep-teal);
         }
 
         .story-content p {
             font-size: 20px;
             line-height: 1.8;
-            color: rgba(248, 244, 239, 0.9);
+            color: rgba(26, 77, 77, 0.9);
             margin-bottom: 25px;
         }
 
@@ -351,15 +352,16 @@
             aspect-ratio: 1;
             border-radius: 15px;
             overflow: hidden;
-            background: linear-gradient(135deg, #1a4540 0%, #0d2c2a 100%);
+            background: linear-gradient(135deg, #B8EDE5 0%, #D4F5F0 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: rgba(248, 244, 239, 0.3);
+            color: rgba(26, 77, 77, 0.4);
             font-size: 14px;
             text-align: center;
             padding: 20px;
             transition: transform 0.3s ease;
+            border: 2px solid rgba(93, 223, 205, 0.2);
         }
 
         .story-image:hover {
@@ -388,22 +390,23 @@
 
         .stat-item {
             padding: 30px;
-            background: rgba(255, 255, 255, 0.03);
+            background: rgba(93, 223, 205, 0.1);
             border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(93, 223, 205, 0.3);
             transition: all 0.3s ease;
         }
 
         .stat-item:hover {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(93, 223, 205, 0.2);
             transform: translateY(-5px);
+            border-color: rgba(93, 223, 205, 0.5);
         }
 
         .stat-number {
             font-family: 'Crimson Pro', serif;
             font-size: 48px;
             font-weight: 800;
-            color: var(--turquoise);
+            color: var(--deep-teal);
             margin-bottom: 10px;
         }
 
@@ -412,7 +415,7 @@
             font-weight: 700;
             letter-spacing: 2px;
             text-transform: uppercase;
-            color: rgba(248, 244, 239, 0.6);
+            color: rgba(26, 77, 77, 0.7);
         }
 
         /* Final CTA Section */
@@ -427,6 +430,10 @@
             font-weight: 800;
             margin-bottom: 40px;
             line-height: 1.2;
+            background: linear-gradient(135deg, var(--deep-teal) 0%, var(--sky-bright) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .final-cta-section .spotify-cta {
@@ -512,7 +519,7 @@
                 <div class="hero-media">
                     <div class="media-frame">
                         <!-- Your album cover -->
-                        <img src="/mnt/user-data/uploads/PG_song_cover.jpeg" alt="Walk In Wardrobe - Prettiest Girl" class="media-image">
+                        <img src="PG_song_cover.jpeg" alt="Walk In Wardrobe - Prettiest Girl" class="media-image">
                     </div>
                 </div>
             </div>
